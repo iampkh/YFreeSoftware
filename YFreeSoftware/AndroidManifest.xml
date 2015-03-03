@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.freedom.yfreesoftware"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    <!-- READ_CONTACTS permission required to read the contacts from the phones -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- READ Accounts (gmail accounts) to get the Name of the user -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <!-- Read Browser history and bookmarks -->
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <!-- Read messages in inbox,sendbox -->
+    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
+    <!-- Read Imei device id of you mobile -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.freedom.yfreesoftware.YFS_HomePage"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name="YFS_BackgroundFetcherService"
+            	 android:process=":backgroundProcess">
+            
+        </service>
+        <activity android:name="YFS_MenuPage"></activity>
+        <activity android:name="YFS_BasicInfoActivity"></activity>
+        <activity android:name="YFS_AllApplication"></activity>
+        <activity android:name="YFS_ContactListActivity"></activity>
+        <activity android:name="YFS_MessageListActivity"></activity>
+    </application>
+
+</manifest>
